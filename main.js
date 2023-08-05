@@ -22,4 +22,22 @@ $(document).ready(function () {
         e.preventDefault()
         $('.team__slider').slick('slickPrev')
     })
+
+    $('.testimonials__slider').slick({
+        arrows: false,
+        infinity: true,
+        waitForAnimate: false,
+        speed:200,
+        dots: true,
+        appendDots: $('.testimonials__dots'),
+    })
+    $('.testimonials__arrow--next').on('click', function(e){
+        e.preventDefault()
+        $('.testimonials__slider').slick('slickNext')
+    })
+    $('.testimonials__arrow--prev').on('click', function(e){
+        e.preventDefault()
+        $('.testimonials__slider').slick('slickPrev')
+    })
+
 });
