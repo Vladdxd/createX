@@ -40,4 +40,17 @@ $(document).ready(function () {
         $('.testimonials__slider').slick('slickPrev')
     })
 
+    $('.program__acc-link').on('click',function(e){
+        e.preventDefault()
+        $(this).toggleClass('program__acc-link--active')
+        $(this).next('.program__acc-text').slideToggle()
+    })
+
+    let map;
+    map = new Map(document.getElementById("map"), {
+        zoom: 4,
+        center: position,
+        mapId: "DEMO_MAP_ID",
+    });
+    
 });
