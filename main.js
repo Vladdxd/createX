@@ -18,14 +18,24 @@ $(document).ready(function () {
             {
                 breakpoint: 1100,
                 settings: {
-                    slidesToShow:2.5,
-                    centerMode: true,
+                    slidesToShow:3,
                 }
             },
             {
-                breakpoint: 850,
+                breakpoint: 750,
                 settings: {
-                    slidesToShow:2,
+                    // centerMode: true,
+                    slidesToShow:2,   
+                }
+            },
+            {
+                breakpoint: 550,
+                settings:{
+                    slidesToShow:1,
+                    draggable: true,
+                    dots: true,
+                    appendDots: $('.team__dots'),
+                    
                 }
             }
         ]
@@ -34,11 +44,11 @@ $(document).ready(function () {
     $('.team__slider-arrow-next').on('click', function (e) {
         e.preventDefault()
         $('.team__slider').slick('slickNext')
-        alert('Привет, это всплывающее окно!')
     })
     $('.team__slider-arrow-prev').on('click', function (e) {
         e.preventDefault()
         $('.team__slider').slick('slickPrev')
+        alert('Привет, это всплывающее окно!')
     })
 
     $('.testimonials__slider').slick({
@@ -48,7 +58,16 @@ $(document).ready(function () {
         speed: 200,
         dots: true,
         appendDots: $('.testimonials__dots'),
+        responsive: [
+            {
+                breakpoint: 800,
+                settings: {
+                    draggable: true,
+                }
+            }
+        ]
     })
+    
     $('.testimonials__arrow--next').on('click', function (e) {
         e.preventDefault()
         $('.testimonials__slider').slick('slickNext')
@@ -122,11 +141,18 @@ $(document).ready(function () {
         }
     }, 0);
 
-    $(".burger, .overlay").on("click", function(e){
+    $(".burger, .overlay, .header__top").on("click", function(e){
         e.preventDefault()
         $('.header__top').toggleClass('header__top--open')
         $('.overlay').toggleClass('overlay--active')
         $('.burger').toggleClass('burger--close')
-
     })
+
+
+    $('.footer__top-title').on('click',function(){
+        $(this).toggleClass('footer__top-title--active')
+
+        $(this).next('.footer__top-list').slideToggle()
+    })
+
 });
